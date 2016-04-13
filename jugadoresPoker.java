@@ -13,4 +13,14 @@ public class jugadoresPoker{
     mano.remove(index);
     return carta;
   }
+  public boolean apostar(){
+    if(money >= 50){
+      money=money-50;
+      return true;
+    }
+    else return false;
+  }
+  public void setMoney(int suma){
+    money=money+suma;
+  }
 }
