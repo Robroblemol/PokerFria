@@ -22,6 +22,11 @@ public void barajar(){
     i++;
   }
 }
-  public void repartir(){}
+  public void repartir(jugadoresPoker jugador){
+    for (int i=0;i<=4 ;i++ ) {
+      jugador.setMano(maso.get(i));
+      maso.remove(i);
+    }
+  }
 
 }

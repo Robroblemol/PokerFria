@@ -5,8 +5,8 @@ public class jugadoresPoker{
   String carta = "";
   int money = 100;
 
-  public void setCartas(ArrayList<String>mano){
-    this.mano = mano;
+  public void setMano(String carta){
+    mano.add(carta);
   }
   public String sacaCartas(int index){
     carta=mano.get(index);
@@ -22,5 +22,10 @@ public class jugadoresPoker{
   }
   public void setMoney(int suma){
     money=money+suma;
+  }
+  public void mostrarMano(){
+    for (int i=0;i<mano.size();i++ ) {
+      System.out.print("["+mano.get(i)+"]");    
+    }
   }
 }
