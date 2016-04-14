@@ -7,5 +7,7 @@ public class main {
     juego.barajar();
     juego.repartir(jugador);
     jugador.mostrarMano();
+
+    ArrayList<jugadoresPoker>jugadores = new ArrayList<String>();
   }
 }

@@ -4,7 +4,7 @@ import java.lang.Math;
 public class juegoPoker{
 ArrayList<String>maso = new ArrayList<String>();
 
-int alet = 0, i = 0;
+int alet = 0, i = 0, apuesta = 0;
 
 String [] cartas = {"CA","C2","C3","C4","C5","C6","C7","C8","C9","C10","CJ","CQ","CK",
                       "PA","P2","P3","P4","P5","P6","P7","P8","P9","P10","PJ","PQ","PK",
@@ -27,6 +27,22 @@ public void barajar(){
       jugador.setMano(maso.get(i));
       maso.remove(i);
     }
+  }
+  public void returnCartasMaso(jugadoresPoker jugador){
+    int i = 0;
+    while(i<jugador.numCarta()){
+      maso.add(jugador.sacaCartas(i));
+      i++;
+    }
+  }
+  public void returnCartasMaso(String carta){
+    maso.add(carta);
+  }
+  public void setApuesta(int a){
+    apuesta=apuesta+a;
+  }
+  public int getApuesta(){
+    return apuesta;
   }
 
 }

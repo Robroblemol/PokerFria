@@ -25,7 +25,10 @@ public class jugadoresPoker{
   }
   public void mostrarMano(){
     for (int i=0;i<mano.size();i++ ) {
-      System.out.print("["+mano.get(i)+"]");    
+      System.out.print("["+mano.get(i)+"]");
     }
+  }
+  public int numCarta(){
+    return mano.size();
   }
 }
