@@ -50,12 +50,27 @@ public class main {
       if(num == 1){
         if(jugadores.get(i).apostar()){
           apuesta+=50;
-        }else System.out.println("jugador "+i+" no puede a postar\n");
-      }else System.out.println("jugador "+i+" se retira del juego\n");
+        }else {System.out.println("jugador "+(i+1)+" no puede a postar\n");
+        juego.returnCartasMaso(jugadores.get(i));
+        jugadores.remove(i);
+      }
+      }
+      else{
+        System.out.println("jugador "+(i+1)+" se retira del juego\n");
+        juego.returnCartasMaso(jugadores.get(i));
+        jugadores.remove(i);
+      }
+      num = 0;
+      i++;
+    }
+    i = 0;
+        System.out.println("");
+    while(i < (jugadores.size()-1)){
+      System.out.println("\nCartas de jugador "+(i+1));
+      jugadores.get(i).mostrarMano();
       i++;
     }
 
 
-
   }
-}
+  }
