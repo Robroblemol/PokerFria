@@ -17,14 +17,8 @@ public class main {
     System.out.println("\n=========================\n"+
                        "Simulacion de juego poker\n"+
                        "=========================\n");
-//numero de jugadoes<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-    while(num ==1){
-    System.out.println("Ingres un nuevo jugador (1)\n"+
-                       "para continuar (2)");
-    jugadoresPoker jug = new jugadoresPoker ();
-    jugadores.add(jug);
-    num = input.nextInt();
-    }
+//ingreasar numero de jugadoes<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    juego.ingJugadores(jugadores);
 // entregar cartas a cada jugador>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><
     i = 0;
     while(i < (jugadores.size()-1)){
@@ -32,13 +26,7 @@ public class main {
       i++;
     }
 // mostramos cartas de cada jugador>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><
-    i = 0;
-        System.out.println("");
-    while(i < (jugadores.size()-1)){
-      System.out.println("\nCartas de jugador "+(i+1));
-      jugadores.get(i).mostrarMano();
-      i++;
-    }
+  juego.mostarCartasJugadores(jugadores);
 // apuesta de jugadores >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><
     num = 0;
     i = 0;
@@ -63,13 +51,21 @@ public class main {
       num = 0;
       i++;
     }
-    i = 0;
-        System.out.println("");
+  juego.mostarCartasJugadores(jugadores);
+      System.out.println("");
+  i=0;
     while(i < (jugadores.size()-1)){
-      System.out.println("\nCartas de jugador "+(i+1));
-      jugadores.get(i).mostrarMano();
+      System.out.println("\njugador "+(i+1)+" desea sacar una carta (1) ");
+      num=input.nextInt();
+      if(num == 1){
+        System.out.println("Que carta desea sacar?");
+        num=input.nextInt();
+        jugadores.get(i).sacaCartas(num);
+      }
       i++;
     }
+    juego.mostarCartasJugadores(jugadores);
+
 
 
   }

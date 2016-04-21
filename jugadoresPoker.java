@@ -2,11 +2,23 @@ import java.util.ArrayList;
 public class jugadoresPoker{
 
   ArrayList<String>mano = new ArrayList<String>();
-  String carta = "";
-  int money = 100;
+  String carta = "",jugada = "";
+  int money = 100,top = 0;
 
+  public void setJugada (String juego,int toR){
+    if(top < toR){
+      jugada = juego;
+      top = toR;
+    }
+  }
+  public String getJugada(){
+    return jugada;
+  }
   public void setMano(String carta){
     mano.add(carta);
+  }
+  public String getCarta (int index){
+    return carta = mano.get(index);
   }
   public String sacaCartas(int index){
     carta=mano.get(index);
