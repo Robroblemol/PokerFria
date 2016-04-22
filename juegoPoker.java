@@ -26,11 +26,11 @@ public void barajar(){
   }
 }
   public void repartir(jugadoresPoker jugador){
+    masop.add("C2");
+    masop.add("T3");
+    masop.add("D4");
+    masop.add("C5");
     masop.add("C6");
-    masop.add("T7");
-    masop.add("D8");
-    masop.add("C9");
-    masop.add("C1");
     for (int i=0;i<=4 ;i++ ) {
       jugador.setMano(masop.get(i));
       maso.remove(i);
@@ -144,17 +144,17 @@ public void barajar(){
       }
     if(num == 1){
       jugador.setJugada("Trio",3);
-        System.out.println("uhmm Tio!");
+        System.out.println("uhmm Trio!");
     }
     int aco=0;
     for(int j =0;j<countNum.length;j++){
       if(countNum[j] == 1){
         aco ++;
-          System.out.println(" num= "+aco);
-      }else if (countNum[j] == 0)aco--;
+          //System.out.println(" num= "+aco);
+      }else if (aco != 5)aco =0;
       //else aco=0;
       }
-      System.out.println(" Lnum= "+aco);
+      //System.out.println(" Lnum= "+aco);
     if(aco == 5){
       jugador.setJugada("Escalera",4);
         System.out.println("Escalera");
