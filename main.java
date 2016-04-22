@@ -65,7 +65,7 @@ public class main {
       i++;
     }
     juego.mostarCartasJugadores(jugadores);
-
+    juego.defJuego(jugadores.get(0));
 
 
   }
