@@ -65,8 +65,13 @@ public class main {
       i++;
     }
     juego.mostarCartasJugadores(jugadores);
-    juego.defJuego(jugadores.get(0));
-
+    i=0;
+  while(i < (jugadores.size()-1)){
+    System.out.println(">>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<\n"+
+                       "Juego para jugador "+i+"__________________");
+    juego.defJuego(jugadores.get(i));
+    i++;
+    }
 
   }
   }
