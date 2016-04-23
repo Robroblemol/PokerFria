@@ -26,13 +26,13 @@ public void barajar(){
   }
 }
   public void repartir(jugadoresPoker jugador){
-    masop.add("C2");
-    masop.add("T3");
-    masop.add("D4");
-    masop.add("C5");
-    masop.add("C6");
+    /*masop.add("C10");
+    masop.add("CJ");
+    masop.add("C1");
+    masop.add("CQ");
+    masop.add("CA");*/
     for (int i=0;i<=4 ;i++ ) {
-      jugador.setMano(masop.get(i));
+      jugador.setMano(maso.get(i));
       maso.remove(i);
     }
   }
@@ -87,10 +87,10 @@ public void barajar(){
       if(palo == 'C'){
         countPal[0]=countPal[0]+1;
       //  System.out.println("\ncontPal 0: "+countPal[0]);
-      }else if (palo == 'P'){
+    }else if (palo == 'D'){
         countPal[1]=countPal[1]+1;
       //  System.out.println("\ncontPal 1: "+countPal[1]);
-      }else if (palo == 'D'){
+    }else if (palo == 'P'){
         countPal[2]=countPal[2]+1;
         //System.out.println("\ncontPal 2: "+countPal[2]);
       }else if (palo == 'T'){
@@ -105,19 +105,17 @@ public void barajar(){
         }
       }
       i++;
-
-
-
     }
-    System.out.println("\n");
+/*    System.out.println("\n");
     for(int i = 0;i< countPal.length; i++){
-       System.out.print(" ContPal "+i+" = "+countPal[i]);
+    //   System.out.print(" ContPal "+i+" = "+countPal[i]);
     }
     System.out.println("\n");
     for(int i = 0;i< countNum.length; i++){
        System.out.print(" contNum "+i+" = "+countNum[i]);
        if(i%2==1)System.out.println(" ");
-    }
+    }*/
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><parejas/dobles<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     i=0;
     num = 0;
       for(int j =0;j<countNum.length;j++){
@@ -136,7 +134,9 @@ public void barajar(){
             System.out.println("Doble parejas");
             flagPDoble = true;
     }
+//>>>>>>>>>>>>>>>>>>>>>>>>>><trio<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     num=0;
+    boolean flagtrio = false;
     for(int j =0;j<countNum.length;j++){
       if(countNum[j] == 3){
         num ++;
@@ -144,9 +144,12 @@ public void barajar(){
       }
     if(num == 1){
       jugador.setJugada("Trio",3);
+      flagtrio = true;
         System.out.println("uhmm Trio!");
     }
+// <<<<<<<<<<<<<<<<<<<<<<<<Escalera<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     int aco=0;
+    boolean flagEsca = false;
     for(int j =0;j<countNum.length;j++){
       if(countNum[j] == 1){
         aco ++;
@@ -158,7 +161,56 @@ public void barajar(){
     if(aco == 5){
       jugador.setJugada("Escalera",4);
         System.out.println("Escalera");
+        flagEsca = true;
     }
+//<<<<<<<<<<<<<<<<<<<<<<<<<<<color!!!<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+  int colorN =0,colorR = 0;
+  colorR = countPal[0]+countPal[1];
+  colorN = countPal[2]+countPal[3];
+  if(colorR == 5){
+    jugador.setJugada("Color",5);
+      System.out.println("Color");
+  }else if(colorN == 5){
+    jugador.setJugada("Color",5);
+      System.out.println("Color");
+  }
+//<<<<<<<<<<<<<<<<<<<<<<<<<fullhouse<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+  if(flagtrio==true && flagPar == true){
+      jugador.setJugada("Color",6);
+        System.out.println("fullhouse");
+  }
+//<<<<<<<<<<<<<<<<<<<<<<<<<<poquer>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><<
+boolean flagPok=false;
+for(int j =0;j<countNum.length;j++){
+  if(countNum[j] == 4){
+    flagPok=true;
+    jugador.setJugada("Poker",7);
+      System.out.println("Poker");
+  }
+}
+//<<<<<<<<<<<<<<<<<<<<<<<<<<<Escaleracolor<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+boolean flagcolor = false;
+for(int j =0;j<countPal.length;j++){
+  if(countPal[j] == 5 && flagEsca == true ){
+    flagcolor=true;
+    jugador.setJugada("Escalera de Color",8);
+      System.out.println("Escalera de Color");
+  }
+}
+//<<<<<<<<<<<<<<<<<<<<<<<<<<<florImperial>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+aco=0;
+for(int j =8;j<countNum.length;j++){
+  if(countNum[j] == 1){
+    aco ++;
+      //System.out.println(" num= "+aco);
+  }else if (aco != 5)aco =0;
+  //else aco=0;
+  }
+  if(aco == 5&&flagcolor){
+    jugador.setJugada("flor imperial",9);
+      System.out.println("flor imperial");
+      flagEsca = true;
+  }
 
   }
 
