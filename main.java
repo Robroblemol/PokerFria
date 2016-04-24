@@ -67,11 +67,12 @@ public class main {
     juego.mostarCartasJugadores(jugadores);
     i=0;
   while(i < (jugadores.size()-1)){
-    System.out.println(">>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<\n"+
-                       "Juego para jugador "+i+"__________________");
+   System.out.println("\n>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<\n"+
+                    "Juego para jugador "+i);
     juego.defJuego(jugadores.get(i));
     i++;
     }
+
 
   }
   }

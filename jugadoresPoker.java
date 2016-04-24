@@ -14,6 +14,9 @@ public class jugadoresPoker{
   public String getJugada(){
     return jugada;
   }
+  public int getTop(){
+    return top;
+  }
   public void setMano(String carta){
     mano.add(carta);
   }
